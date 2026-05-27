@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>LinguaLens</title>
+    <!-- 引入CSS样式文件-->
+     <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <!-- 整个页面的容器，左右两栏都在里面 -->
+    <div id="app">
+        <div id="reader">
+            <!-- 输入框：用户粘贴文字的地方 -->
+            <textarea id="text-input" placeholder="粘贴文字到这里..."></textarea>
+            <!-- 显示区：文字会从输入框转移到这里显示，方便选中 -->
+             <div id="text-display"></div>
+        </div>
+
+        <!-- 右栏：AI侧边栏 -->
+         <div id="sidebar">
+            <!-- 侧边栏顶部：标题 + 收起按钮 -->
+            <div id="sidebar-header">
+            <span>AI 助手</span>
+            <button id="toggle-sidebar">收起</button>
+            </div>
+
+            <!-- 自定义Prompt输入框：用户告诉AI怎么回答 -->
+            <textarea id="custom-prompt" placeholder="自定义AI回答方式"></textarea>
+            
+            <!-- AI回答显示区：选中文字后这里显示结果 -->
+             <div id="ai-response">选中文字即可获得解释</div>
+        </div>
+    </div>
+
+    <!-- 引入JS逻辑文件，放在最底部确保HTML加载完再执行 -->
+     <script src="{{ url_for('static',filename='script.js') }}"></script>
+</body>
+</html>
