@@ -24,10 +24,10 @@ toggleBtn.addEventListener("click",function() {
     }
 })
 
-textDisplay.addEventListener("mouseup",function(){
+document.addEventListener("selectionchange",function(){
     const selected = window.getSelection().toString().trim()
 
-    if (selected.length === 0) return
+    if (selected.length <= 1) return
 
     const prompt = customPrompt.value || "请解释这个词或短语"
 

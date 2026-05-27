@@ -70,3 +70,15 @@ body {
     overflow-y: auto;
     color: #333;
 }
+
+@media (max-width: 768px) {
+    #app{
+        flex-direction: column;
+    }
+
+    #sidebar{
+        width: 100%;
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+}
