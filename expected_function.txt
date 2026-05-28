@@ -1,0 +1,10 @@
+language-app
+添加深色
+适应手机格式
+添加存储系统
+优化ai回答，现阶段回答过于荣誉复杂
+
+反馈机制（统计今日查词数+历史查词数）
+
+
+code-explain-app(like languageapp)

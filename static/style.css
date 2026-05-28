@@ -74,11 +74,53 @@ body {
 @media (max-width: 768px) {
     #app{
         flex-direction: column;
+        height: auto;
+    }
+
+    #reader {
+        width: 100%;
+        min-height: 50vh;
+        padding: 12px;
+    }
+
+    #text-input {
+        width: 100%;
+        min-height: 200px;
+        font-size: 16px;
+    }
+
+    #text-display {
+        font-size: 16px;
+        line-height: 2;
     }
 
     #sidebar{
         width: 100%;
         border-left: none;
         border-top: 1px solid #ddd;
+        padding: 12px;
+        min-height: 300px;
     }
+
+    #load-btn {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin-top: 8px;
+    }
+}
+
+.word {
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0 2px;
+    transition: background 0.15s;
+}
+
+.word:hover {
+    background: #e8f4f0
+}
+
+.word.selected {
+    background: #b7e0d0
 }

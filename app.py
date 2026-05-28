@@ -39,10 +39,20 @@ def open_file():
 def explain():
     data = request.json
     selected_text = data.get("text","")
-    custom_prompt = data.get("prompt","你是语言学习助手。根据上下文解释选中内容，给出中文意思，单词需要美式音标。回答要简洁，根据内容难度和长度灵活调整")
+    custom_prompt = data.get("prompt",
+    "你是语言学习助手。"
+    "直接给出选中内容在本文中的意思，"
+    "不要任何开场白，不要markdown符号，不要星号井号引号，"
+    "不要解释其他语境，只解释它在这篇文章里的用法。"
+    "单词需要美式音标。"
+    "禁止使用这样的形式**“环境”**,用双引号""即可"
+    )
+    article_context = data.get("content","")
+    
+
 
     messages = [
-        {"role":"user","content":f"{custom_prompt}\n\n{selected_text}"}
+        {"role":"user","content":f"{custom_prompt}\n\n文章原文: {article_context}\n\n用户选中的内容: {selected_text}"}
     ]
 
     headers = {
