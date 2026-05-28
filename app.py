@@ -39,7 +39,7 @@ def open_file():
 def explain():
     data = request.json
     selected_text = data.get("text","")
-    custom_prompt = data.get("prompt","请解释这个词或短语")
+    custom_prompt = data.get("prompt","你是语言学习助手。根据上下文解释选中内容，给出中文意思，单词需要美式音标。回答要简洁，根据内容难度和长度灵活调整")
 
     messages = [
         {"role":"user","content":f"{custom_prompt}\n\n{selected_text}"}
