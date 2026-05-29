@@ -29,14 +29,16 @@ function loadText() {
     })
 
     let debounceTimer = null
-    textDisplay.addEventListener("mouseup", function() {
+    function handleSelection() {
         const selected = window.getSelection().toString().trim()
         if (selected.length <= 1) return
         clearTimeout(debounceTimer)
         debounceTimer = setTimeout(function() {
             triggerAI(selected)
         }, 300)
-    })
+    }
+    textDisplay.addEventListener("mouseup",handleSelection)
+    textDisplay.addEventListener("touchend",handleSelection)
 }
 
 textInput.addEventListener("keydown", function(e) {
@@ -63,7 +65,7 @@ toggleBtn.addEventListener("click",function() {
 function triggerAI(selected) {
     if (!selected || selected.length <= 1) return
     const prompt = customPrompt.value || "请解释这个词或短语"
-    const context = textDisplay.innerText
+    const context = textDisplay.textContent
     aiResponse.innerText = "思考中..."
 
     fetch("/explain", {
